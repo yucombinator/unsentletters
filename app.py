@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask,render_template
 import praw
 
 app = Flask(__name__)
@@ -14,7 +14,9 @@ def home():
     #while(len(post)==0):
     #    post = getPost()
     app.logger.debug(post)
-    return str(post.selftext)
+    app.logger.debug(post.title)
+
+    return render_template('letter.html', title = post.title, text=post.selftext)
 
 if __name__ == "__main__":
     app.run(debug=True)
