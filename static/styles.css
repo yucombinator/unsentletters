@@ -5,6 +5,7 @@ body{
 }
 .content{
   background-color:white;
+  margin-bottom:5%;
 }
 .title{
   background-color:white;
@@ -13,7 +14,7 @@ p {
   line-height:1.75;
 }
 .header{
-  margin:50px;
+  margin:5%;
 }
 .actions{
   position:fixed;
