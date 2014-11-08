@@ -25,9 +25,9 @@ def sentimentAnalysis(text):
 @app.route("/")
 def home():
     post = getPost()
-    sentiment = sentimentAnalysis(post.selftext)
+    sentiment = sentimentAnalysis(post.title)
     app.logger.debug(sentiment)
-    app.logger.debug(generateRandomDate())
+    #app.logger.debug(generateRandomDate())
     #app.logger.debug(post.selftext)
     postedTime = humanize.naturaldate(datetime.datetime.fromtimestamp(post.created))
     return render_template('letter.html', post = post, time = postedTime, sentiment = sentiment)
