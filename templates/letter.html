@@ -13,17 +13,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body class="container-fluid">
-    {% if title %}
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3"><h2 class="text-center">{{ title }}</h2></div>
+    {% if post.title %}
+      <div class="row header">
+        <div class="col-md-6 col-md-offset-3"><h2 class="text-center">{{ post.title }}</h2></div>
       </div>
     {% endif %}
       <div class="row">
 
         <p class="col-md-6 col-md-offset-3 text-justify">
-          {% for line in text.splitlines() %}
+          {% for line in post.selftext.splitlines() %}
               {{line}}<br>
-          {% endfor %}
+          {% endfor %}<br>
+
+              {{ time }}
+        </p>
+      </div>
+      <div class="row">
+        <p class="col-md-6 col-md-offset-3 text-justify">
+          <a href="{{post.permalink}}">source</a> <a href="/">next</a> about
         </p>
       </div>
   </body>
