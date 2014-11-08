@@ -19,7 +19,12 @@
       </div>
     {% endif %}
       <div class="row">
-        <p class="col-md-6 col-md-offset-3 text-justify">{{ text }}</p>
+
+        <p class="col-md-6 col-md-offset-3 text-justify">
+          {% for line in text.splitlines() %}
+              {{line}}<br>
+          {% endfor %}
+        </p>
       </div>
   </body>
 </html>

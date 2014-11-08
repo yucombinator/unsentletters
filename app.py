@@ -11,11 +11,11 @@ def getPost():
 @app.route("/")
 def home():
     post = getPost()
-
     #while(len(post)==0):
     #    post = getPost()
     app.logger.debug(post)
     app.logger.debug(post.title)
+    app.logger.debug(post.selftext)
 
     return render_template('letter.html', title = post.title, text=post.selftext)
 
