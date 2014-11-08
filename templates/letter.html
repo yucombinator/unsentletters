@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
-  <title>{{ title }} | unsentletters</title>
   <head>
+    <title>{{ title }} | unsentletters</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <!-- Optional theme -->
@@ -10,6 +10,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <!-- site specific css -->
     <link rel="stylesheet" href="/static/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body class="container-fluid">
     {% if title %}
@@ -18,7 +19,7 @@
       </div>
     {% endif %}
       <div class="row">
-        <p class="col-md-6 col-md-offset-3">{{ text }}</p>
+        <p class="col-md-6 col-md-offset-3 text-justify">{{ text }}</p>
       </div>
   </body>
 </html>
