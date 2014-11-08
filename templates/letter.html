@@ -4,8 +4,8 @@
     <title>{{ title }} | unsentletters</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+    <!-- Optional theme
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css"> -->
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <!-- site specific css -->
@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body class="container-fluid">
+    <div class="content">
     {% if post.title %}
       <div class="row header">
         <div class="col-md-6 col-md-offset-3"><h2 class="text-center">{{ post.title }}</h2></div>
@@ -23,15 +24,17 @@
         <p class="col-md-6 col-md-offset-3 text-justify">
           {% for line in post.selftext.splitlines() %}
               {{line}}<br>
-          {% endfor %}<br>
-
+          {% endfor %}
               {{ time }}
         </p>
       </div>
       <div class="row">
-        <p class="col-md-6 col-md-offset-3 text-justify">
-          <a href="{{post.permalink}}">source</a> <a href="/">next</a> about
-        </p>
+        <div class="col-md-2 text-center actions">
+          <a href="{{post.permalink}}" class="btn btn-default">source</a>
+          <a href="/" class="btn btn-default">next</a>
+          <a href="https://github.com/icechen1/unsentletters" class="btn btn-default">about</a>
+        </div>
       </div>
+    </div>
   </body>
 </html>

@@ -1,6 +1,26 @@
+body{
+  background-color:black;
+}
+.content{
+  background-color:white;
+}
 p {
   line-height:1.75;
 }
 .header{
   margin:50px;
+}
+.actions{
+  position:fixed;
+  bottom:0px;
+  right:0px;
+  margin:25px;
+}
+
+@media all and (max-width: 500px) {
+.actions {
+    position: static;
+    margin-left:0px;
+    margin-right:0px;
+}
 }
