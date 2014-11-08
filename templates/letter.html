@@ -1,27 +1,36 @@
 <!doctype html>
 <html>
   <head>
-    <title>{{ title }} | unsentletters</title>
+    <title>{{ post.title }} | unsentletters</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <!-- Optional theme
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap-theme.min.css"> -->
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <!-- site specific css -->
     <link rel="stylesheet" href="/static/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body class="container-fluid">
-    <div class="content">
     {% if post.title %}
       <div class="row header">
-        <div class="col-md-6 col-md-offset-3"><h2 class="text-center">{{ post.title }}</h2></div>
+        <div class="col-md-6 col-md-offset-3 title">
+          {% if sentiment.polarity>0.5 %}
+          <div class="sentiment-neg">
+          {% elif sentiment.polarity>0 %}
+          <div class="sentiment-neutral">
+          {% else %}
+          <div class="sentiment-pos">
+          {% endif %}
+            <h2 class="text-center">
+              {{ post.title }}
+            </h2>
+          </div>
+        </div>
       </div>
     {% endif %}
       <div class="row">
 
-        <p class="col-md-6 col-md-offset-3 text-justify">
+        <p class="col-md-6 col-md-offset-3 text-justify content">
           {% for line in post.selftext.splitlines() %}
               {{line}}<br>
           {% endfor %}
@@ -29,12 +38,15 @@
         </p>
       </div>
       <div class="row">
-        <div class="col-md-2 text-center actions">
+        <div class="col-md-3 text-center actions">
           <a href="{{post.permalink}}" class="btn btn-default">source</a>
           <a href="/" class="btn btn-default">next</a>
           <a href="https://github.com/icechen1/unsentletters" class="btn btn-default">about</a>
         </div>
       </div>
-    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
   </body>
 </html>

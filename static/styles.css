@@ -1,7 +1,11 @@
 body{
-  background-color:black;
+  /*background-color:black;*/
+  font-family:'serif';
 }
 .content{
+  background-color:white;
+}
+.title{
   background-color:white;
 }
 p {
@@ -16,6 +20,16 @@ p {
   right:0px;
   margin:25px;
 }
+/*
+.sentiment-neg{
+  color:red;
+}
+.sentiment-neutral{
+  color:orange;
+}
+.sentiment-pos{
+  color:green;
+}*/
 
 @media all and (max-width: 500px) {
 .actions {
